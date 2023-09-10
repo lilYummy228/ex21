@@ -10,49 +10,57 @@ namespace ex21
     {
         static void Main(string[] args)
         {
-            const string CommandSum = "sum";
-            const string CommandExit = "exit";
-
             int[] array = new int[0];
-            bool isOpen = true;
+            int sumOfNumbers = 0;
 
-            while (isOpen)
+            while (true)
             {
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("sum - суммировать введенные числа\nexit - выйти из программы\n");
                 Console.Write("Введите команду или число: ");
-                int number = Convert.ToInt32(Console.ReadLine());
-                int[] tempArray = new int[array.Length + 1];
+                string command = Console.ReadLine();
 
-                for (int i = 0; i < array.Length; i++)
+                if (command != "exit" && command != "sum")
                 {
-                    tempArray[i] = array[i];
+                    int number = Convert.ToInt32(command);
+                    int[] tempArray = new int[array.Length + 1];
+
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        tempArray[i] = array[i];
+                    }
+
+                    tempArray[tempArray.Length - 1] = number;
+                    array = tempArray;
+                    Console.Clear();
+                    Console.SetCursorPosition(0, 7);
+                    Console.WriteLine("Введенные числа:");
+
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        Console.Write($"{array[i]}|");
+                    }
                 }
-
-                tempArray[tempArray.Length - 1] = number;
-                array = tempArray;
-                Console.Clear();
-                Console.SetCursorPosition(0, 10);
-                Console.WriteLine("Введенные числа:");
-
-                for (int i = 0; i < array.Length; i++)
+                else if (command == "exit")
                 {
-                    Console.WriteLine(array[i]);
+                    break;
+                }
+                else if (command == "sum")
+                {
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        sumOfNumbers += array[i];
+                    }
+
+                    Console.WriteLine($"Сумма всех чисел равняется: {sumOfNumbers}");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("Неверная команда...");
                 }
             }
-            //switch ()
-            //{
-            //    case CommandSum:
-            //        break;
-
-            //    case CommandExit:
-            //        isOpen = false;
-            //        break;
-
-            //    default:
-            //        Console.WriteLine("Неверная команда.");
-            //        break;
-            //}
         }
     }
 }
