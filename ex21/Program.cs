@@ -56,10 +56,6 @@ namespace ex21
                     Console.ReadKey();
                     Console.Clear();
                 }
-                else
-                {
-                    Console.WriteLine("Неверная команда...");
-                }
             }
         }
     }
