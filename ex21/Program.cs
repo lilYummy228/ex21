@@ -45,11 +45,11 @@ namespace ex21
                         Console.Write($"{array[i]}|");
                     }
                 }
-                else if (command == "exit")
+                else if (command == CommandExit)
                 {
                     isOpen = false;
                 }
-                else if (command == "sum")
+                else if (command == CommandSum)
                 {
                     for (int i = 0; i < array.Length; i++)
                     {
