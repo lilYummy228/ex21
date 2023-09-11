@@ -10,17 +10,21 @@ namespace ex21
     {
         static void Main(string[] args)
         {
-            int[] array = new int[0];
-            int sumOfNumbers = 0;
+            const string CommandExit = "exit";
+            const string CommandSum = "sum";
 
-            while (true)
+            int[] array = new int[0];
+            bool isOpen = true;
+
+            while (isOpen)
             {
+                int sumOfNumbers = 0;
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("sum - суммировать введенные числа\nexit - выйти из программы\n");
                 Console.Write("Введите команду или число: ");
                 string command = Console.ReadLine();
 
-                if (command != "exit" && command != "sum")
+                if (command != CommandExit && command != CommandSum)
                 {
                     int number = Convert.ToInt32(command);
                     int[] tempArray = new int[array.Length + 1];
@@ -43,7 +47,7 @@ namespace ex21
                 }
                 else if (command == "exit")
                 {
-                    break;
+                    isOpen = false;
                 }
                 else if (command == "sum")
                 {
@@ -53,6 +57,7 @@ namespace ex21
                     }
 
                     Console.WriteLine($"Сумма всех чисел равняется: {sumOfNumbers}");
+                    Array.Clear(array, 0, array.Length);
                     Console.ReadKey();
                     Console.Clear();
                 }
