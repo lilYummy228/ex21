@@ -20,7 +20,7 @@ namespace ex21
             {
                 int sumOfNumbers = 0;
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("sum - суммировать введенные числа\nexit - выйти из программы\n");
+                Console.WriteLine($"{CommandSum} - суммировать введенные числа\n{CommandExit} - выйти из программы\n");
                 Console.Write("Введите команду или число: ");
                 string command = Console.ReadLine();
 
