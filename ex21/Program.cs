@@ -55,7 +55,6 @@ namespace ex21
                     tempArray[tempArray.Length - 1] = number;
                     array = tempArray;
                     Console.Clear();
-
                 }
                 else if (command == CommandExit)
 
